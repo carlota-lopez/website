@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from '../registro/usuario/usuario.service';
 import { especialidad } from '../login/especialidades/especialidad';
 import { Router } from '@angular/router';
+import { AngularFirestore } from 'angularfire2/firestore';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-registro',
@@ -11,17 +13,21 @@ import { Router } from '@angular/router';
 export class RegistroComponent implements OnInit {
 
   email: string;
-  especialidad: string;
-  especialidades: especialidad[];
+  especialidad: string = "";
+  especialidades: Observable<any>;
   password: string;
   confirmPassword: string;
   mostrarAlerta: boolean = false;
   mostrarRegistro: boolean = false;
 
-  constructor(public usuarioService: UsuarioService, public router: Router) { }
+  constructor(public usuarioService: UsuarioService, public router: Router, private db: AngularFirestore) { }
 
   ngOnInit(): void {
-    this.getEspecialidades();
+    //this.getEspecialidades();
+    this.especialidades = this.db.collection('especialidadesDisponibles').valueChanges();
+    this.db.collection('especialidadesDisponibles').valueChanges().subscribe(data => {
+      console.log(data)
+    });
   }
 
   registro() {
@@ -42,8 +48,8 @@ export class RegistroComponent implements OnInit {
     }
   }
 
-  getEspecialidades(): void {
-    this.usuarioService.getEspecialidades().subscribe(especialidades => this.especialidades = especialidades);
-  }
+  //getEspecialidades(): void {
+  //  this.usuarioService.getEspecialidades().subscribe(especialidades => this.especialidades = especialidades);
+  //}
 
 }

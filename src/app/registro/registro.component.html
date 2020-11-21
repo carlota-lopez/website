@@ -10,7 +10,7 @@
       required="required"
     />
     <datalist id="esp">
-      <option *ngFor="let item of especialidades">{{item.nombre}}</option>
+      <option *ngFor="let item of especialidades | async" [value]="item.nombre">{{item.nombre}}</option>
     </datalist>
     <input
       type="especialidad"

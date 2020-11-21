@@ -20,9 +20,9 @@ import { CookieService } from "ngx-cookie-service";
       return this.http.post("https://reqres.in/api/registro", usuario);
     }
 
-    getEspecialidades(): Observable<especialidad[]> {
-      return of(ESPECIALIDADES);
-    }
+    //getEspecialidades(): Observable<especialidad[]> {
+    //  return of(ESPECIALIDADES);
+    //}
 
     getToken() {
       return this.cookies.get("token");
