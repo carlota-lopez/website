@@ -1,6 +1,6 @@
 # Website
 
-Esta página web es la página web que utilizara el medico para comunicarse con sus pacientes.
+Esta página web es la página web que utilizara el medico para comunicarse con sus pacientes, gestionar sus citas con ellos, llamadas y videollamadas.
 
 Constara de los siguientes apartados:
 
