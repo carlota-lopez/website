@@ -1,0 +1,18 @@
+<div class="login">
+    <form class="custom-form" method="post">
+      <h1>Hospital</h1>
+      <input
+        type="email"
+        [(ngModel)]="email"
+        name="email"
+        placeholder="Correo"
+        required="required"
+      />
+      <input type="password" 
+        [(ngModel)]="password" 
+        name="password" 
+        placeholder="Contrase&ntilde;a"
+        required="required"/>
+      <button type="submit" (click)="login()">Log in</button>
+    </form>
+  </div>
