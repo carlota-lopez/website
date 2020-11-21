@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, of } from 'rxjs';
 import { UsuarioService } from '../registro/usuario/usuario.service';
 import { especialidad } from '../login/especialidades/especialidad';
 import { Router } from '@angular/router';
