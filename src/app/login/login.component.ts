@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { from } from 'rxjs';
 import {  UsuarioService } from '../registro/usuario/usuario.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,8 +10,9 @@ import {  UsuarioService } from '../registro/usuario/usuario.service';
 export class LoginComponent implements OnInit {
   email: string;
   password: string;
+  logueado: boolean = false;
 
-  constructor(public usuarioService: UsuarioService) { }
+  constructor(public usuarioService: UsuarioService, public router: Router) { }
 
   ngOnInit(): void {
   }
@@ -19,7 +20,12 @@ export class LoginComponent implements OnInit {
   login() {
     const usuario = {email: this.email, password: this.password};
     this.usuarioService.login(usuario).subscribe(data => {
-      console.log(data);
+      this.usuarioService.setToken(data.token);
+      this.router.navigateByUrl("/");
+    },
+    error => {
+      console.log(error);
     });
+    this.logueado = true;
   }
 }

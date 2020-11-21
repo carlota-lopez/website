@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Bienvenido a Care4U';
+  logueado: boolean = false;
 }
