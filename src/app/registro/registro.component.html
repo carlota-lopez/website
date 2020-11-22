@@ -1,7 +1,43 @@
 <div class="register">
   <form class="custom-form" method="post">
     <h1>Registro</h1>
-    
+    <input
+      type="nombre"
+      [(ngModel)]="nombre"
+      name="nombre"
+      placeholder="Nombre"
+      required="required"
+    />
+    <input
+      type="apellido1"
+      [(ngModel)]="apellido1"
+      name="apellido1"
+      placeholder="Primer Apellido"
+      required="required"
+    />
+    <input
+      type="apellido2"
+      [(ngModel)]="apellido2"
+      name="apellido2"
+      placeholder="Segundo Apellido"
+      required="required"
+    />
+    <input
+      type="fecha"
+      [(ngModel)]="fecha"
+      name="fecha"
+      placeholder="Fecha de Nacimiento"
+      ng2-datetime-picker format-date="YYYY-MM-DD HH:MM" 
+      parse-format="YYYY-MM-DD"
+      required="required"
+    />
+    <input
+      type="sexo"
+      [(ngModel)]="sexo"
+      name="sexo"
+      placeholder="Sexo"
+      required="required"
+    />
     <input
       type="email"
       [(ngModel)]="email"

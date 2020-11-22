@@ -12,6 +12,11 @@ import { Observable } from 'rxjs';
 })
 export class RegistroComponent implements OnInit {
 
+  nombre: string;
+  apellido1: string;
+  apellido2: string;
+  fecha: Date;
+  sexo: string;
   email: string;
   especialidad: string = "";
   especialidades: Observable<any>;
@@ -23,7 +28,6 @@ export class RegistroComponent implements OnInit {
   constructor(public usuarioService: UsuarioService, public router: Router, private db: AngularFirestore) { }
 
   ngOnInit(): void {
-    //this.getEspecialidades();
     this.especialidades = this.db.collection('especialidadesDisponibles').valueChanges();
     this.db.collection('especialidadesDisponibles').valueChanges().subscribe(data => {
       console.log(data)
@@ -36,7 +40,7 @@ export class RegistroComponent implements OnInit {
       console.log("Las contraseñas no coinciden");
     } else {
       this.mostrarRegistro = true;
-      const usuario = { email: this.email, password: this.password, especialidad: this.especialidad };
+      const usuario = { email: this.email, password: this.password };
       this.usuarioService.registro(usuario).subscribe(data => {
       this.usuarioService.setToken(data.token);
       this.router.navigateByUrl('/');
@@ -47,9 +51,5 @@ export class RegistroComponent implements OnInit {
     });
     }
   }
-
-  //getEspecialidades(): void {
-  //  this.usuarioService.getEspecialidades().subscribe(especialidades => this.especialidades = especialidades);
-  //}
 
 }

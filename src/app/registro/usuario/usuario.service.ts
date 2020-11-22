@@ -1,16 +1,15 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable, of } from "rxjs";
-import { especialidad } from "../../login/especialidades/especialidad";
-import { ESPECIALIDADES } from "../../login/especialidades/mock-especialidades";
 import { CookieService } from "ngx-cookie-service";
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 
 @Injectable({
     providedIn: "root"
   })
 
   export class UsuarioService {
-    constructor(private http: HttpClient, private cookies: CookieService) {}
+    constructor(private http: HttpClient, private cookies: CookieService, private firestore: AngularFirestore) {}
 
     login(usuario: any): Observable<any> {
         return this.http.post("https://reqres.in/api/login", usuario);
@@ -19,10 +18,6 @@ import { CookieService } from "ngx-cookie-service";
     registro(usuario: any): Observable<any> {
       return this.http.post("https://reqres.in/api/registro", usuario);
     }
-
-    //getEspecialidades(): Observable<especialidad[]> {
-    //  return of(ESPECIALIDADES);
-    //}
 
     getToken() {
       return this.cookies.get("token");

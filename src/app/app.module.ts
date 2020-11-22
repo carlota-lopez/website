@@ -12,6 +12,8 @@ import { AngularFireModule } from 'angularfire2';
 import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+// Datepicker
+import { Ng2DatetimePickerModule } from 'ng2-datetime-picker';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    Ng2DatetimePickerModule
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]
