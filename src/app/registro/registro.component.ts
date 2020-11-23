@@ -15,7 +15,8 @@ export class RegistroComponent implements OnInit {
   nombre: string;
   apellido1: string;
   apellido2: string;
-  fecha: Date;
+  dni: string;
+  fecha: string;
   sexo: string;
   email: string;
   especialidad: string = "";
@@ -40,11 +41,12 @@ export class RegistroComponent implements OnInit {
       console.log("Las contraseñas no coinciden");
     } else {
       this.mostrarRegistro = true;
-      const usuario = { email: this.email, password: this.password };
+      const usuario = { apellido1: this.apellido1, apellido2: this.apellido2, password: this.password, correo: this.email, dni: this.dni, especialidad: this.especialidad, fecha: this.fecha, nombre: this.nombre };
       this.usuarioService.registro(usuario).subscribe(data => {
       this.usuarioService.setToken(data.token);
       this.router.navigateByUrl('/');
       console.log("Registrado correctamente");
+      this.usuarioService.registroFirebase(usuario);
     },
     error => {
       console.log(error);

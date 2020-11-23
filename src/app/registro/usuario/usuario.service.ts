@@ -19,6 +19,11 @@ import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firest
       return this.http.post("https://reqres.in/api/registro", usuario);
     }
 
+    registroFirebase(usuario: { apellido1: string, apellido2: string, password: string, correo: string, dni: string, especialidad: string, fecha: string, nombre: string }) {
+      // Add user to firestore
+      this.firestore.collection('medicosRegistrados').add(usuario);
+    }
+
     getToken() {
       return this.cookies.get("token");
     }
@@ -35,4 +40,5 @@ import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firest
       const token = this.getToken();
       // Endpoint para devolver usuario con token
     }
+
   }
