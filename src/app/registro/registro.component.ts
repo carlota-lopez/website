@@ -41,7 +41,7 @@ export class RegistroComponent implements OnInit {
       console.log("Las contraseñas no coinciden");
     } else {
       this.mostrarRegistro = true;
-      const usuario = { apellido1: this.apellido1, apellido2: this.apellido2, password: this.password, correo: this.email, dni: this.dni, especialidad: this.especialidad, fecha: this.fecha, nombre: this.nombre };
+      const usuario = { apellido1: this.apellido1, apellido2: this.apellido2, contraseña: this.password, correo: this.email, dni: this.dni, especialidad: this.especialidad, fecha: this.fecha, nombre: this.nombre };
       this.usuarioService.registro(usuario).subscribe(data => {
       this.usuarioService.setToken(data.token);
       this.router.navigateByUrl('/');
