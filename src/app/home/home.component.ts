@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from "../registro/usuario/usuario.service";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +9,7 @@ import { UsuarioService } from "../registro/usuario/usuario.service";
 })
 export class HomeComponent implements OnInit {
 
-  constructor(public usuarioService: UsuarioService) { }
+  constructor(public usuarioService: UsuarioService, public router: Router) { }
 
   ngOnInit(): void {
     this.getUsuarioLogueado();
@@ -18,6 +19,18 @@ export class HomeComponent implements OnInit {
     this.usuarioService.getUsuario().subscribe(usuario => {
       console.log(usuario);
     })
+  }
+
+  listadoPacientes() {
+    this.router.navigateByUrl('/pacientes');
+  }
+
+  agenda() {
+    this.router.navigateByUrl('/agenda');
+  }
+
+  videollamada() {
+    this.router.navigateByUrl('/videollamada');
   }
 
 }

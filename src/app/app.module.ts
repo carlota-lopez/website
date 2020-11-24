@@ -14,13 +14,21 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 // Datepicker
 import { Ng2DatetimePickerModule } from 'ng2-datetime-picker';
+import { PacientesComponent } from './home/pacientes/pacientes.component';
+import { AgendaComponent } from './home/agenda/agenda.component';
+import { VideollamadaComponent } from './home/videollamada/videollamada.component';
+import { PacienteComponent } from './home/pacientes/paciente/paciente.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegistroComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    PacientesComponent,
+    AgendaComponent,
+    VideollamadaComponent,
+    PacienteComponent
   ],
   imports: [
     BrowserModule,

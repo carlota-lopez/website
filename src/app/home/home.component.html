@@ -1,2 +1,17 @@
-<h1 class="custom-form">Bienvenido a CARE4U</h1>
+<br>
+<div class="main">
+    <nav>
+        <a routerLink="/home">Home</a>
+    </nav>
+</div>
+<div class="custom-form">
+    <h1>Bienvenido a CARE4U</h1>
+    <br>
+    <button type="submit" (click)="listadoPacientes()">Listado de pacientes</button>
+    <br>
+    <button type="submit" (click)="agenda()">Agenda personal</button>
+    <br>
+    <button type="submit" (click)="videollamada()">Acceso a videollamada</button>
+</div>
+<router-outlet></router-outlet>
 
